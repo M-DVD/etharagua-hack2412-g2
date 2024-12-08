@@ -8,6 +8,8 @@ interface IAave {
 }
 
 contract Prestaciones {
+    uint256 idSolicitudes = 0;
+    uint256 idTrabajadores = 0;
     address public empresa;
     string public nombreEmpresa;
     string public idEmpresa;
@@ -28,6 +30,7 @@ contract Prestaciones {
     enum EstadoSolicitud {Pendiente, Aprobada, Rechazada}
     enum RetiroSolicitud {Total, Intereses, Porcentaje}
     struct SolicitudRetiro {
+//        address trabajador; 
         RetiroSolicitud tipo;   // "Total", "Intereses", "Porcentaje"
         uint8 porcentaje;       // Solo se usa si el Retiro es "Porcentaje"
         EstadoSolicitud estado; // "En espera", "Aceptada", "Rechazada"
@@ -36,7 +39,10 @@ contract Prestaciones {
 
     mapping(address => Trabajador) public trabajadores;
     address[] public listaTrabajadores;
+
     mapping(address => SolicitudRetiro) public solicitudesRetiro;
+//    mapping(uint256 => SolicitudRetiro) public solicitudesRetiro;
+//    address[] public listaSolicitudes;
 
 //    event TrabajadorRegistrado(address indexed trabajador, string cedula, string nombre);
 //    event TrabajadorRetirado(address indexed trabajador, string cedula, string nombre);
@@ -59,8 +65,8 @@ contract Prestaciones {
         _;
     }
 
-    constructor(string memory _nombreEmpresa, string memory _idEmpresa) {
-        empresa = msg.sender;
+    constructor(address responsable_empresa, string memory _nombreEmpresa, string memory _idEmpresa) {
+        empresa = responsable_empresa;
         nombreEmpresa = _nombreEmpresa;
         idEmpresa = _idEmpresa;
     }
@@ -89,6 +95,7 @@ contract Prestaciones {
     }
     // Finaliza la Contratación de un Trabajador
     function finalizarContratacion(address _trabajador) public soloEmpresa {
+        require(trabajadores[_trabajador].estatus, "El trabajador no esta activo");
         Trabajador storage trabajador = trabajadores[_trabajador];
         trabajador.estatus = false;
 
@@ -138,6 +145,7 @@ contract Prestaciones {
 
     // La Empresa Rechaza la Solicitud
     function rechazarSolicitud(address _trabajador) public soloEmpresa {
+        // Revisar que el Trabajo existe
         SolicitudRetiro storage solicitud = solicitudesRetiro[_trabajador];
         solicitud.estado = EstadoSolicitud.Rechazada;
         emit RespuestaSolicitud(_trabajador, EstadoSolicitud.Rechazada);
@@ -145,6 +153,7 @@ contract Prestaciones {
 
     // La Empresa Acepta la Solicitud
     function aceptarSolicitud(address _trabajador) public soloEmpresa {
+        // Revisar que el Trabajo existe
         SolicitudRetiro storage solicitud = solicitudesRetiro[_trabajador];
         Trabajador storage trabajador = trabajadores[_trabajador];
 
