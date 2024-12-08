@@ -20,7 +20,7 @@ contract FactoryPrestaciones {
     }
 
     // Creación de Empresa
-    function crearEmpresa(string memory _nombreEmpresa, string memory _idEmpresa) public onlyOwner {
+    function crearEmpresa(string memory _nombreEmpresa, string memory _idEmpresa) public {
         Prestaciones nuevaEmpresa = new Prestaciones(msg.sender, _nombreEmpresa, _idEmpresa);
         listaEmpresas[msg.sender] = nuevaEmpresa;
 
