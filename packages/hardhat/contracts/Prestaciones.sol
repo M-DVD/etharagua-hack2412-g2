@@ -128,7 +128,8 @@ contract Prestaciones {
         SolicitudRetiro memory nuevaSolicitud = SolicitudRetiro({
             tipo: _tipoRetiro,
             porcentaje: _porcentaje,
-            estado: EstadoSolicitud.Pendiente
+            estado: EstadoSolicitud.Pendiente,
+            fechaSolicitud: block.timestamp
         });
         solicitudesRetiro[_trabajador] = nuevaSolicitud;
 
