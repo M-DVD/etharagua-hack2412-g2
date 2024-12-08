@@ -1,10 +1,205 @@
-<svg width="103" height="102" viewBox="0 0 103 102" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.72229" y="0.99707" width="101.901" height="100.925" rx="19.6606" fill="black"/>
-<path d="M69.4149 42.5046L70.9118 39.812L72.5438 42.5046L83.0241 59.1906L70.9533 65.9361L59.1193 59.1906L69.4149 42.5046Z" fill="white"/>
-<path d="M70.9533 69.2496L60.6577 63.6876L70.9533 79.0719L81.184 63.4985L70.9533 69.2496Z" fill="white"/>
-<path d="M70.953 65.9259V41.8533V39.8499L83.063 59.1785L70.953 65.9259Z" fill="#DFDFDF"/>
-<path d="M70.9617 79.0499L71.0409 69.2969L81.2062 63.4629L70.9617 79.0499Z" fill="#DFDFDF"/>
-<path d="M34.409 21.6931V24.6125H34.4132L34.4124 27.747H26.8093L26.8093 27.7566H25.5383L21.3839 36.4914H34.4135V39.9723H34.4091L34.4135 69.4549C34.4135 73.5268 31.1126 76.8277 27.0408 76.8277H24.7346L19.8064 84.0772H62.4172L57.3539 76.8277H51.7795C47.7076 76.8277 44.4067 73.5268 44.4067 69.4549L44.4024 43.665C44.5071 39.7076 47.7304 36.5273 51.7046 36.4914H79.5481L74.6584 27.7566H53.6021L53.6021 27.747L44.3987 27.7469L44.3994 24.6125H44.4022V18.3245L34.409 21.6931Z" fill="white"/>
-<path d="M39.882 19.8517V76.5496C39.9731 74.9642 41.0475 70.8554 44.3648 69.1027V50.8665L44.4703 50.8998V43.8309C44.4703 39.7591 47.7712 36.4582 51.843 36.4582H79.5812L76.9508 31.8656H49.9083C46.1286 31.8656 44.3648 34.556 44.3648 34.556L44.4435 18.3066L39.882 19.8517Z" fill="#DFDFDF"/>
-<path d="M23.622 31.7927L21.3295 36.5083H34.4247V31.7927H23.622Z" fill="#DFDFDF"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xml:space="preserve"
+   viewBox="0 0 317.855 317.855"
+   id="Crypto-Insurance-Logo"
+   version="1.1"
+   width="800px"
+   height="800px"
+   fill="#000000"
+   sodipodi:docname="shield-nuevo.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+   <title>Crypto Insurance Logo</title>
+<sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1280"
+   inkscape:window-height="955"
+   id="namedview12"
+   showgrid="false"
+   inkscape:zoom="0.5782"
+   inkscape:cx="126.24256"
+   inkscape:cy="434.25163"
+   inkscape:window-x="0"
+   inkscape:window-y="0"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Capa_1" />
+<metadata>
+<rdf:RDF>
+    <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Crypto Insurance Logo</dc:title>
+        <dc:creator>
+            <cc:Agent>
+                <dc:title>David Mejias</dc:title>
+            </cc:Agent>
+        </dc:creator>
+        <dc:identifier>crypto-insurance-logo</dc:identifier>
+        <dc:subject>
+            <rdf:Bag>
+                <rdf:li>crypto</rdf:li>
+                <rdf:li>insurance</rdf:li>
+                <rdf:li>logo</rdf:li>
+            </rdf:Bag>
+        </dc:subject>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/by-nc/4.0/" />
+        <dc:rights>
+            <cc:Agent>
+            <dc:title>M-DVD</dc:title>
+            </cc:Agent>
+        </dc:rights>
+        <dc:date>2024-12-01</dc:date>
+    </cc:Work>
+    <cc:License rdf:about="http://creativecommons.org/licenses/by-nc/4.0/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:prohibits rdf:resource="http://creativecommons.org/ns#CommercialUse" />
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+    </cc:License>
+</rdf:RDF>
+</metadata>
+
+<defs id="defs11">
+    <radialGradient id="centro-blanco-grad" cx="50%" cy="30%" r="70%" fx="50%" fy="50%">
+        <stop offset="030%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+        <stop offset="100%" style="stop-color:rgb(155,155,180);stop-opacity:1" />
+    </radialGradient>
+
+    <linearGradient id="borde-centro-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="010%" style="stop-color:rgb(128,100,80);stop-opacity:1" />
+        <stop offset="100%" style="stop-color:rgb(050,050,050);stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="marco-beige-borde-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="000%" style="stop-color:rgb(255,250,200);stop-opacity:1" />
+        <stop offset="100%" style="stop-color:rgb(255,230,180);stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="marco-beige-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="000%" style="stop-color:rgb(255,230,180);stop-opacity:1" />
+        <stop offset="100%" style="stop-color:rgb(180,150,100);stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="borde-marco-left-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="000%" style="stop-color:rgb(255,250,200);stop-opacity:1" />
+        <stop offset="100%" style="stop-color:rgb(128,100,050);stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="borde-marco-right-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="000%" style="stop-color:rgb(255,250,200);stop-opacity:1" />
+        <stop offset="100%" style="stop-color:rgb(128,100,050);stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="diamante1-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="000%" style="stop-color:rgb(00,100,50);stop-opacity:1" />
+        <stop offset="100%" style="stop-color:rgb(26,153,77);stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="diamante-a-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="000%" style="stop-color:#2f7962;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#001a29;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="diamante-b-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="000%" style="stop-color:#28b33c;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#001a33;stop-opacity:1" />
+    </linearGradient>
+
+</defs>
+
+    <g transform="matrix(1.15,0,0,1.15,-23.842575,-24.794775)"
+        id="borde-marco-left">
+        <path
+            id="marco-beige-left-poly"
+            d="m 31.748,67.982 c 0.831,16.784 4.062,55.438 16.604,96.591 21.405,70.227 58.601,114.87 110.576,132.746 L 158.927,22.198 C 112.175,53.648 54.153,64.713 31.748,67.982 Z"
+            inkscape:connector-curvature="0"
+            style="fill:url(#borde-marco-left-grad)" />
+    </g>
+    <g transform="matrix(1.15,0,0,1.15,-23.842575,-24.794775)"
+        id="borde-marco-right">
+        <path
+            id="marco-beige-right-poly"
+            d="M 158.928,297.319 C 211.024,279.403 248.263,234.608 269.641,164.117 282.098,123.043 285.294,84.683 286.113,67.983 263.709,64.714 205.675,53.651 158.927,22.198 Z"
+            inkscape:connector-curvature="0"
+            style="fill:url(#borde-marco-right-grad)" />
+    </g>
+
+    <g transform="matrix(1.1,0,0,1.1,-15.89605,-16.80685)"
+       id="marco-beige">
+        <path
+             id="marco-beige-poly"
+             d="m 31.748,67.982 c 0.831,16.784 4.062,55.438 16.604,96.591 21.405,70.227 58.601,114.87 110.576,132.746 52.096,-17.916 89.335,-62.711 110.713,-133.202 12.457,-41.074 15.653,-79.434 16.472,-96.134 C 263.709,64.714 205.675,53.651 158.927,22.198 112.175,53.648 54.153,64.713 31.748,67.982 Z"
+             inkscape:connector-curvature="0"
+             style="fill:url(#marco-beige-grad);stroke:rgb(128,100,80);stroke-opacity:0.2" />
+    </g>
+    <g transform="translate(-0.003, -0.831, 0, 0, 0, 30.0)"
+       id="marco-beige-borde">
+        <path
+             id="marco-beige-borde-poly"
+             d="m 31.748,67.982 c 0.831,16.784 4.062,55.438 16.604,96.591 21.405,70.227 58.601,114.87 110.576,132.746 52.096,-17.916 89.335,-62.711 110.713,-133.202 12.457,-41.074 15.653,-79.434 16.472,-96.134 C 263.709,64.714 205.675,53.651 158.927,22.198 112.175,53.648 54.153,64.713 31.748,67.982 Z"
+             inkscape:connector-curvature="0"
+             style="fill:url(#marco-beige-borde-grad);stroke:rgb(128,100,80);stroke-opacity:0.2" />
+    </g>
+
+    <g id="borde-centro"
+       transform="translate(-0.003,-0.831)">
+        <path
+           id="borde-centro-poly"
+           d="m 31.748,67.982 c 0.831,16.784 4.062,55.438 16.604,96.591 21.405,70.227 58.601,114.87 110.576,132.746 52.096,-17.916 89.335,-62.711 110.713,-133.202 12.457,-41.074 15.653,-79.434 16.472,-96.134 C 263.709,64.714 205.675,53.651 158.927,22.198 112.175,53.648 54.153,64.713 31.748,67.982 Z"
+           inkscape:connector-curvature="0"
+           style="fill:url(#borde-centro-grad)" />
+    </g>
+    <g transform="matrix(0.95,0,0,0.95,7.943525,7.156925)"
+       id="centro-blanco">
+        <path
+             id="centro-blanco-poly"
+             d="m 31.748,67.982 c 0.831,16.784 4.062,55.438 16.604,96.591 21.405,70.227 58.601,114.87 110.576,132.746 52.096,-17.916 89.335,-62.711 110.713,-133.202 12.457,-41.074 15.653,-79.434 16.472,-96.134 C 263.709,64.714 205.675,53.651 158.927,22.198 112.175,53.648 54.153,64.713 31.748,67.982 Z"
+             inkscape:connector-curvature="0"
+             style="fill:url(#centro-blanco-grad);stroke:#000000;stroke-opacity:0.4" />
+    </g>
+
+    <g id="logo-borde">
+        <path id="diamante-a"
+              d="M 158.9275,52.591058 87.824051,160.96624 158.9275,199.59228 230.03095,160.96624 Z"
+              transform="scale(1.02) translate(-3.2,-2.7)"
+              style="fill:url(#diamante-a-grad)" />
+        <path id="diamante-b"
+              d="m 87.79793,171.52833 71.10345,92.06325 71.15569,-92.06325 -71.15569,38.6015 z"
+              transform="scale(1.04) translate(-6.4,-9.4)"
+              style="fill:url(#diamante-b-grad)" />
+    </g>
+
+    <g transform="translate(0.9930745)"
+       id="logo-todo">
+        <path id="diamante1"
+              d="m 88.22511,160.28266 69.70931,37.86852 V 54.032518 Z"
+              style="fill:url(#diamante1-grad);" />
+        <path id="diamante24"
+              d="M 157.93442,54.032518 V 198.15118 l 69.70933,-37.86852 z"
+              style="fill:#bdff66;" />
+        <path id="diamante3"
+              d="m 157.90859,131.19319 -69.709309,29.1132 69.709309,37.86851 69.73516,-37.86851 z"
+              style="fill:#003333;opacity:0.8;" />
+
+        <path id="diamante56"
+              d="M 157.90859,210.27574 V 262.689 l 69.76098,-90.25804 z"
+              style="fill:#1acc2d" />
+        <path id="diamante5"
+              d="M 88.199281,172.43096 157.90859,262.689 v -52.41326 z"
+              style="fill:#003333" />
+    </g>
 </svg>
