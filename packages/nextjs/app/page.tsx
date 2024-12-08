@@ -42,7 +42,6 @@ const Home: NextPage = () => {
                 <Link href="/trabajadores" passHref className="link">
                   Zona de Empresa
                 </Link>{" "}
-                tab.
               </p>
             </div>
             <div className="flex flex-col items-center px-10 py-10 max-w-xs text-center rounded-3xl bg-base-100">
@@ -52,7 +51,6 @@ const Home: NextPage = () => {
                 <Link href="/solicitudes" passHref className="link">
                   Zona de Trabajador
                 </Link>{" "}
-                tab.
               </p>
             </div>
           </div>
