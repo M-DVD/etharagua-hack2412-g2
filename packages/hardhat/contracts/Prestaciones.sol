@@ -31,6 +31,7 @@ contract Prestaciones {
         RetiroSolicitud tipo;   // "Total", "Intereses", "Porcentaje"
         uint8 porcentaje;       // Solo se usa si el Retiro es "Porcentaje"
         EstadoSolicitud estado; // "En espera", "Aceptada", "Rechazada"
+        uint256 fechaSolicitud;
     }
 
     mapping(address => Trabajador) public trabajadores;

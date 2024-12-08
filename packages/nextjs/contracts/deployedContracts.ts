@@ -55,9 +55,9 @@ const deployedContracts = {
             },
             {
               indexed: false,
-              internalType: "string",
+              internalType: "enum Prestaciones.EstadoSolicitud",
               name: "estado",
-              type: "string",
+              type: "uint8",
             },
           ],
           name: "RespuestaSolicitud",
@@ -74,9 +74,9 @@ const deployedContracts = {
             },
             {
               indexed: false,
-              internalType: "string",
-              name: "tipoRetiro",
-              type: "string",
+              internalType: "enum Prestaciones.RetiroSolicitud",
+              name: "tipo",
+              type: "uint8",
             },
           ],
           name: "RetiroSolicitado",
@@ -344,9 +344,9 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "string",
+              internalType: "enum Prestaciones.RetiroSolicitud",
               name: "_tipoRetiro",
-              type: "string",
+              type: "uint8",
             },
             {
               internalType: "uint8",
@@ -370,9 +370,9 @@ const deployedContracts = {
           name: "solicitudesRetiro",
           outputs: [
             {
-              internalType: "string",
-              name: "tipoRetiro",
-              type: "string",
+              internalType: "enum Prestaciones.RetiroSolicitud",
+              name: "tipo",
+              type: "uint8",
             },
             {
               internalType: "uint8",
@@ -380,9 +380,9 @@ const deployedContracts = {
               type: "uint8",
             },
             {
-              internalType: "string",
+              internalType: "enum Prestaciones.EstadoSolicitud",
               name: "estado",
-              type: "string",
+              type: "uint8",
             },
           ],
           stateMutability: "view",
