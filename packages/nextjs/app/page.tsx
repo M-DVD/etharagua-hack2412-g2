@@ -14,7 +14,7 @@ const Home: NextPage = () => {
       <div className="flex items-center flex-col flex-grow pt-10">
         <div className="px-5">
           <h1 className="text-center">
-            <span className="block text-2xl mb-2">Welcome to</span>
+            <span className="block text-2xl mb-2">Bienvenido </span>
             <span className="block text-4xl font-bold">Fondos De Prestaciones Empresariales Descentralizado</span>
           </h1>
           <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row">
@@ -22,20 +22,14 @@ const Home: NextPage = () => {
             <Address address={connectedAddress} />
           </div>
           <p className="text-center text-lg">
-          Seguridad social descentralizada, asegurando tu futuro  con transparencia y total confiabilidad !Tu fondo, tu tranquilidad!{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              
-            </code>
+            Seguridad social descentralizada, asegurando tu futuro con transparencia y total confiabilidad !Tu fondo, tu
+            tranquilidad!{" "}
+            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block"></code>
           </p>
           <p className="text-center text-lg">
             {" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              
-            </code>{" "}
-            {" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-             
-            </code>
+            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block"></code>{" "}
+            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block"></code>
           </p>
         </div>
 
@@ -46,7 +40,7 @@ const Home: NextPage = () => {
               <p>
                 {" "}
                 <Link href="/debug" passHref className="link">
-                  Debug Contracts
+                  Empresa
                 </Link>{" "}
                 tab.
               </p>
@@ -56,7 +50,7 @@ const Home: NextPage = () => {
               <p>
                 {" "}
                 <Link href="/blockexplorer" passHref className="link">
-                  Block Explorer
+                  Trabajador
                 </Link>{" "}
                 tab.
               </p>
