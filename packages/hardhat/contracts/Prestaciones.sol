@@ -162,32 +162,7 @@ contract Prestaciones {
         emit RespuestaSolicitud(_trabajador, "Aceptada");
     }
 
-/*
-    function actualizarPrestaciones(address _trabajador, uint256 _saldo, uint8 _porcentajeRetirado) public soloEmpresa {
-        require(_porcentajeRetirado <= PORCENTAJE_MAXIMO_RETIRO, "El porcentaje de retiro excede el maximo permitido");
-        Trabajador storage trabajador = trabajadores[_trabajador];
-        trabajador.saldo = _saldo;
-        trabajador.porcentajeRetirado = _porcentajeRetirado;
-
-        emit PrestacionesActualizadas(_trabajador, _saldo, _porcentajeRetirado);
-    }
-
-    function realizarRetiro(address _trabajador, uint256 _monto) public {
-        Trabajador storage trabajador = trabajadores[_trabajador];
-        require(_monto <= trabajador.saldo, "Saldo insuficiente");
-
-        uint256 montoRetiro = (_monto * trabajador.porcentajeRetirado) / 100;
-        trabajador.saldo -= montoRetiro;
-
-        payable(_trabajador).transfer(montoRetiro);
-
-        emit RetiroRealizado(_trabajador, montoRetiro);
-    }
-
-    function depositar() public payable soloEmpresa {
-        // La empresa puede depositar fondos en el contrato
-    }
-*/
+    // Función Modelo de Arbitraje
     function arbitraje() public soloEmpresa view returns (bool) {
         // La empresa puede depositar fondos en el contrato
         return true;
@@ -198,7 +173,7 @@ contract Prestaciones {
         IAave(aave).deposit(asset, _monto, _trabajador, 0);
     }
     // Función privada para hacer unstaking en Aave
-    function _unstake(address _trabajador, uint256 _monto) private {
+    function _unstake(address _trabajador, uint256 _monto) private soloEmpresa {
         IAave(aave).withdraw(asset, _monto, _trabajador);
     }
     // Función pública para consultar el balance en Aave
