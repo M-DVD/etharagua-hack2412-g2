@@ -3,7 +3,7 @@
 import Link from "next/link";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
-import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { UserGroupIcon, NewspaperIcon } from "@heroicons/react/24/outline";
 import { Address } from "~~/components/scaffold-eth";
 
 const Home: NextPage = () => {
@@ -36,7 +36,7 @@ const Home: NextPage = () => {
         <div className="flex-grow px-8 py-12 mt-16 w-full bg-base-300">
           <div className="flex flex-col gap-12 justify-center items-center sm:flex-row">
             <div className="flex flex-col items-center px-10 py-10 max-w-xs text-center rounded-3xl bg-base-100">
-              <BugAntIcon className="w-8 h-8 fill-secondary" />
+              <UserGroupIcon className="w-8 h-8 fill-secondary" />
               <p>
                 {" "}
                 <Link href="/trabajadores" passHref className="link">
@@ -45,7 +45,7 @@ const Home: NextPage = () => {
               </p>
             </div>
             <div className="flex flex-col items-center px-10 py-10 max-w-xs text-center rounded-3xl bg-base-100">
-              <MagnifyingGlassIcon className="w-8 h-8 fill-secondary" />
+              <NewspaperIcon className="w-8 h-8 fill-secondary" />
               <p>
                 {" "}
                 <Link href="/solicitudes" passHref className="link">
