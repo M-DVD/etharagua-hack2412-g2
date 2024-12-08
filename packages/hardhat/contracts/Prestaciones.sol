@@ -24,10 +24,13 @@ contract Prestaciones {
         uint256 ultimaFechaDeposito;
         bool estatus;
     }
+
+    enum EstadoSolicitud {Pendiente, Aprobada, Rechazada}
+    enum RetiroSolicitud {Total, Intereses, Porcentaje}
     struct SolicitudRetiro {
-        string tipoRetiro; // "Total", "Intereses", "Porcentaje"
-        uint8 porcentaje; // Solo se usa si tipoRetiro es "Porcentaje"
-        string estado; // "En espera", "Aceptada", "Rechazada"
+        RetiroSolicitud tipo;   // "Total", "Intereses", "Porcentaje"
+        uint8 porcentaje;       // Solo se usa si el Retiro es "Porcentaje"
+        EstadoSolicitud estado; // "En espera", "Aceptada", "Rechazada"
     }
 
     mapping(address => Trabajador) public trabajadores;
@@ -39,8 +42,8 @@ contract Prestaciones {
 //    event PrestacionesActualizadas(address indexed trabajador, uint256 saldo, uint8 porcentajeRetirado);
 //    event RetiroRealizado(address indexed trabajador, uint256 monto);
     event DepositoPrestaciones(address indexed trabajador, uint256 monto);
-    event RetiroSolicitado(address indexed trabajador, string tipoRetiro);
-    event RespuestaSolicitud(address indexed trabajador, string estado);
+    event RetiroSolicitado(address indexed trabajador, RetiroSolicitud tipo);
+    event RespuestaSolicitud(address indexed trabajador, EstadoSolicitud estado);
 
     modifier soloEmpresa() {
         require(msg.sender == empresa, "Solo la empresa puede realizar esta accion");
@@ -111,20 +114,20 @@ contract Prestaciones {
     }
 
     // Envía la Solicitud de Retiro
-    function solicitarRetiro(string memory _tipoRetiro, uint8 _porcentaje) public trabajadorActivo {
+    function solicitarRetiro(RetiroSolicitud _tipoRetiro, uint8 _porcentaje) public trabajadorActivo {
         address _trabajador = msg.sender;
         require(
-            keccak256(abi.encodePacked(_tipoRetiro)) == keccak256(abi.encodePacked("Total")) ||
-            keccak256(abi.encodePacked(_tipoRetiro)) == keccak256(abi.encodePacked("Intereses")) ||
-            keccak256(abi.encodePacked(_tipoRetiro)) == keccak256(abi.encodePacked("Porcentaje")),
+            _tipoRetiro == RetiroSolicitud.Total ||
+            _tipoRetiro == RetiroSolicitud.Intereses ||
+            _tipoRetiro == RetiroSolicitud.Porcentaje,
             "Tipo de retiro invalido"
         );
         // Se almacena la Solicitud
-        if (keccak256(abi.encodePacked(_tipoRetiro)) == keccak256(abi.encodePacked("Total"))) { _porcentaje = 100; }
+        if (_tipoRetiro == RetiroSolicitud.Total) { _porcentaje = 100; }
         SolicitudRetiro memory nuevaSolicitud = SolicitudRetiro({
-            tipoRetiro: _tipoRetiro,
+            tipo: _tipoRetiro,
             porcentaje: _porcentaje,
-            estado: "En espera"
+            estado: EstadoSolicitud.Pendiente
         });
         solicitudesRetiro[_trabajador] = nuevaSolicitud;
 
@@ -134,8 +137,8 @@ contract Prestaciones {
     // La Empresa Rechaza la Solicitud
     function rechazarSolicitud(address _trabajador) public soloEmpresa {
         SolicitudRetiro storage solicitud = solicitudesRetiro[_trabajador];
-        solicitud.estado = "Rechazada";
-        emit RespuestaSolicitud(_trabajador, "Rechazada");
+        solicitud.estado = EstadoSolicitud.Rechazada;
+        emit RespuestaSolicitud(_trabajador, EstadoSolicitud.Rechazada);
     }
 
     // La Empresa Acepta la Solicitud
@@ -143,14 +146,14 @@ contract Prestaciones {
         SolicitudRetiro storage solicitud = solicitudesRetiro[_trabajador];
         Trabajador storage trabajador = trabajadores[_trabajador];
 
-        if (keccak256(abi.encodePacked(solicitud.tipoRetiro)) == keccak256(abi.encodePacked("Total"))) {
+        if (solicitud.tipo == RetiroSolicitud.Total) {
             _unstake(_trabajador, consultarBalanceAave(_trabajador));
             trabajador.saldo = 0;
-        } else if (keccak256(abi.encodePacked(solicitud.tipoRetiro)) == keccak256(abi.encodePacked("Intereses"))) {
+        } else if (solicitud.tipo == RetiroSolicitud.Intereses) {
             uint256 intereses = consultarIntereses(_trabajador);
             _unstake(_trabajador, intereses);
             trabajador.saldo = consultarBalanceAave(_trabajador);
-        } else if (keccak256(abi.encodePacked(solicitud.tipoRetiro)) == keccak256(abi.encodePacked("Porcentaje"))) {
+        } else if (solicitud.tipo == RetiroSolicitud.Porcentaje) {
             require(solicitud.porcentaje + trabajador.porcentajeRetirado <= PORCENTAJE_MAXIMO_RETIRO, "Ya has retirado el maximo permitido");
             uint256 montoRetiro = (trabajador.saldo * solicitud.porcentaje) / 100;
             _unstake(_trabajador, montoRetiro);
@@ -158,8 +161,8 @@ contract Prestaciones {
             trabajador.saldo = consultarBalanceAave(_trabajador);
         }
 
-        solicitud.estado = "Aceptada";
-        emit RespuestaSolicitud(_trabajador, "Aceptada");
+        solicitud.estado = EstadoSolicitud.Aprobada;
+        emit RespuestaSolicitud(_trabajador, EstadoSolicitud.Aprobada);
     }
 
     // Función Modelo de Arbitraje
