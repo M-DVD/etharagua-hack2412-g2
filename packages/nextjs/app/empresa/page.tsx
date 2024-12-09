@@ -1,63 +1,128 @@
 "use client";
 
-import Link from "next/link";
 import type { NextPage } from "next";
-import { useAccount } from "wagmi";
-import { UserGroupIcon, NewspaperIcon } from "@heroicons/react/24/outline";
-import { Address } from "~~/components/scaffold-eth";
 
-const Home: NextPage = () => {
-  const { address: connectedAddress } = useAccount();
+import { useState } from 'react';
+
+interface Trabajador {
+  idTrabajador: number;
+  nombreTrabajador: string;
+  walletTrabajador: string;
+  estadoTrabajador: boolean;
+}
+
+const Formulario = () => {
+  const [trabajador, setTrabajador] = useState<Trabajador>({
+    idTrabajador: 0,
+    nombreTrabajador: '',
+    walletTrabajador: '',
+    estadoTrabajador: false,
+  });
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log(trabajador);
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = event.target;
+    setTrabajador((prevTrabajador) => ({ ...prevTrabajador, [name]: value }));
+  };
 
   return (
-    <>
-      <div className="flex flex-col flex-grow items-center pt-10">
-        <div className="px-5">
-          <h1 className="text-center">
-            <span className="block mb-2 text-2xl">Bienvenido </span>
-            <span className="block text-4xl font-bold">Fondos De Prestaciones Empresariales Descentralizado</span>
-          </h1>
-          <div className="flex flex-col justify-center items-center space-x-2 sm:flex-row">
-            <p className="my-2 font-medium">Connected Address:</p>
-            <Address address={connectedAddress} />
-          </div>
-          <p className="text-lg text-center">
-            Seguridad social descentralizada, asegurando tu futuro con transparencia y total confiabilidad !Tu fondo, tu
-            tranquilidad!{" "}
-            <code className="inline-block max-w-full text-base italic font-bold break-words break-all bg-base-300"></code>
-          </p>
-          <p className="text-lg text-center">
-            {" "}
-            <code className="inline-block max-w-full text-base italic font-bold break-words break-all bg-base-300"></code>{" "}
-            <code className="inline-block max-w-full text-base italic font-bold break-words break-all bg-base-300"></code>
-          </p>
+    <div className="max-w-md p-4 mx-auto bg-white rounded-lg shadow-md">
+      <h2 className="mb-4 text-lg font-bold">Registro de trabajador</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <label
+            className="block mb-2 text-sm font-bold text-gray-700"
+            htmlFor="idTrabajador"
+          >
+            ID Trabajador
+          </label>
+          <input
+            className="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+            id="idTrabajador"
+            type="number"
+            value={trabajador.idTrabajador}
+            onChange={handleChange}
+            name="idTrabajador"
+          />
         </div>
-
-        <div className="flex-grow px-8 py-12 mt-16 w-full bg-base-300">
-          <div className="flex flex-col gap-12 justify-center items-center sm:flex-row">
-            <div className="flex flex-col items-center px-10 py-10 max-w-xs text-center rounded-3xl bg-base-100">
-              <UserGroupIcon className="w-8 h-8 fill-secondary" />
-              <p>
-                {" "}
-                <Link href="/trabajadores" passHref className="link">
-                  Zona de Empresa
-                </Link>{" "}
-              </p>
-            </div>
-            <div className="flex flex-col items-center px-10 py-10 max-w-xs text-center rounded-3xl bg-base-100">
-              <NewspaperIcon className="w-8 h-8 fill-secondary" />
-              <p>
-                {" "}
-                <Link href="/solicitudes" passHref className="link">
-                  Zona de Trabajador
-                </Link>{" "}
-              </p>
-            </div>
-          </div>
+        <div className="mb-4">
+          <label
+            className="block mb-2 text-sm font-bold text-gray-700"
+            htmlFor="nombreTrabajador"
+          >
+            Nombre Trabajador
+          </label>
+          <input
+            className="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+            id="nombreTrabajador"
+            type="text"
+            value={trabajador.nombreTrabajador}
+            onChange={handleChange}
+            name="nombreTrabajador"
+          />
         </div>
-      </div>
-    </>
+        <div className="mb-4">
+          <label
+            className="block mb-2 text-sm font-bold text-gray-700"
+            htmlFor="walletTrabajador"
+          >
+            Wallet Trabajador
+          </label>
+          <input
+            className="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+            id="walletTrabajador"
+            type="text"
+            value={trabajador.walletTrabajador}
+            onChange={handleChange}
+            name="walletTrabajador"
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block mb-2 text-sm font-bold text-gray-700"
+            htmlFor="estadoTrabajador"
+          >
+            Estado Trabajador
+          </label>
+          <select
+            className="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+            id="estadoTrabajador"
+            value={trabajador.estadoTrabajador ? "true" : "false"}
+            onChange={handleChange}
+            name="estadoTrabajador"
+          >
+            <option value="true">Activo</option>
+            <option value="false">Inactivo</option>
+          </select>
+        </div>
+        <button
+          className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+          type="submit"
+        >
+          Enviar
+        </button>
+      </form>
+    </div>
   );
 };
 
-export default Home;
+const Empresa: NextPage = () => {
+  
+
+  return (
+    <div className="container mx-auto my-10">
+      <div>Zona de Empresa</div>
+      <br/><br/><br/>
+      <Formulario/>
+      <br/>
+
+      <div></div>
+    </div>
+  );
+};
+
+export default Empresa;

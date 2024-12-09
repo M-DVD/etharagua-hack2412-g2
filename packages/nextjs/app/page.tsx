@@ -19,8 +19,10 @@ const Home: NextPage = () => {
   });
 
   useEffect(() => {
-    if (data != undefined && data != "0x0000000000000000000000000000000000000000") {
-      console.log(data);
+    if (data == undefined || data == "0x0000000000000000000000000000000000000000") {
+      return;
+    }
+    else {
       setDatosEmpresa(data);
     }
   }, [data]);
@@ -39,21 +41,20 @@ const Home: NextPage = () => {
   };
 
   const handleSubmit = (event:any) => {
-    event.preventDefault();
-    console.log(formData); // Aquí puedes enviar los datos a un servidor o realizar otra acción
+    event.preventDefault(); // Aquí puedes enviar los datos a un servidor o realizar otra acción
   };
 
   const { writeContractAsync: writeYourContractAsync } = useScaffoldWriteContract("FactoryPrestaciones");
 
   return (
     <>
-      <div className="flex flex-col flex-grow items-center pt-10">
+      <div className="flex flex-col items-center flex-grow pt-10">
         <div className="px-5">
           <h1 className="text-center">
             <span className="block mb-2 text-2xl">Bienvenido </span>
             <span className="block text-4xl font-bold">Fondos De Prestaciones Empresariales Descentralizado</span>
           </h1>
-          <div className="flex flex-col justify-center items-center space-x-2 sm:flex-row">
+          <div className="flex flex-col items-center justify-center space-x-2 sm:flex-row">
             <p className="my-2 font-medium">Connected Address:</p>
             <Address address={connectedAddress} />
           </div>
@@ -69,18 +70,18 @@ const Home: NextPage = () => {
           </p>
         </div>
 
-        {datosEmpresa ? (<div className="flex-grow px-8 py-12 mt-16 w-full bg-base-300">
-          <div className="flex flex-col gap-12 justify-center items-center sm:flex-row">
-            <div className="flex flex-col items-center px-10 py-10 max-w-xs text-center rounded-3xl bg-base-100">
+        {datosEmpresa ? (<div className="flex-grow w-full px-8 py-12 mt-16 bg-base-300">
+          <div className="flex flex-col items-center justify-center gap-12 sm:flex-row">
+            <div className="flex flex-col items-center max-w-xs px-10 py-10 text-center rounded-3xl bg-base-100">
               <UserGroupIcon className="w-8 h-8 fill-secondary" />
               <p>
                 {" "}
-                <Link href="/trabajadores" passHref className="link">
+                <Link href={`/empresa/${data}`}  passHref className="link">
                   Zona de Empresa
                 </Link>{" "}
               </p>
             </div>
-            <div className="flex flex-col items-center px-10 py-10 max-w-xs text-center rounded-3xl bg-base-100">
+            <div className="flex flex-col items-center max-w-xs px-10 py-10 text-center rounded-3xl bg-base-100">
               <NewspaperIcon className="w-8 h-8 fill-secondary" />
               <p>
                 {" "}
@@ -92,9 +93,9 @@ const Home: NextPage = () => {
           </div>
         </div>)
         : 
-        (<div className="flex-grow px-8 py-12 mt-16 w-full bg-base-300">
-          <div className="flex flex-col gap-12 justify-center items-center sm:flex-row">
-            <div className="flex flex-col items-center px-10 py-10 max-w-xs text-center rounded-3xl bg-base-100">
+        (<div className="flex-grow w-full px-8 py-12 mt-16 bg-base-300">
+          <div className="flex flex-col items-center justify-center gap-12 sm:flex-row">
+            <div className="flex flex-col items-center max-w-xs px-10 py-10 text-center rounded-3xl bg-base-100">
             <form onSubmit={handleSubmit}>
       <div className="mb-4">
         <label htmlFor="nombre_empresa" className="block mb-2 text-sm font-bold text-gray-700">
@@ -106,7 +107,7 @@ const Home: NextPage = () => {
           name="nombre_empresa"
           value={formData.nombre_empresa}
           onChange={handleChange}
-          className="px-3 py-2 w-full leading-tight text-gray-700 rounded border shadow appearance-none focus:outline-none focus:shadow-outline"
+          className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
         />
       </div>
       <div className="mb-4">
@@ -119,7 +120,7 @@ const Home: NextPage = () => {
           name="id_empresa"
           value={formData.id_empresa}
           onChange={handleChange}
-          className="px-3 py-2 w-full leading-tight text-gray-700 rounded border shadow appearance-none focus:outline-none focus:shadow-outline"
+          className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
         />
       </div>
       <button

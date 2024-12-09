@@ -44,7 +44,7 @@ contract Prestaciones {
 //    mapping(uint256 => SolicitudRetiro) public solicitudesRetiro;
 //    address[] public listaSolicitudes;
 
-//    event TrabajadorRegistrado(address indexed trabajador, string cedula, string nombre);
+    event TrabajadorRegistrado(address indexed trabajador, string cedula, string nombre, string fechaIngreso);
 //    event TrabajadorRetirado(address indexed trabajador, string cedula, string nombre);
 //    event PrestacionesActualizadas(address indexed trabajador, uint256 saldo, uint8 porcentajeRetirado);
 //    event RetiroRealizado(address indexed trabajador, uint256 monto);
@@ -72,13 +72,13 @@ contract Prestaciones {
     }
 
     // Configuracion del Aave
-    function configurarStakProtocol (address _aave, address _asset) public {
+    function configurarStakProtocol (address _aave, address _asset) public soloEmpresa {
         aave = _aave;
         asset = _asset;
     }
 
     // Crea la Contratación/Registro de un Trabajador
-    function registrarTrabajador(address _trabajador, string memory _cedula, string memory _nombre) public soloEmpresa {
+    function registrarTrabajador(address _trabajador, string memory _cedula, string memory _nombre, string memory _fechaIngreso) public soloEmpresa {
         Trabajador memory nuevoTrabajador = Trabajador({
             cedula: _cedula,
             nombre: _nombre,
@@ -91,7 +91,7 @@ contract Prestaciones {
         trabajadores[_trabajador] = nuevoTrabajador;
         listaTrabajadores.push(_trabajador);
 
-//        emit TrabajadorRegistrado(_trabajador, _cedula, _nombre);
+       emit TrabajadorRegistrado(_trabajador, _cedula, _nombre, _fechaIngreso);
     }
     // Finaliza la Contratación de un Trabajador
     function finalizarContratacion(address _trabajador) public soloEmpresa {
@@ -103,9 +103,10 @@ contract Prestaciones {
     }
 
     // Deposita las Prestaciones al Trabajador, aumenta su Saldo y las mete en Staking
-    function depositarPrestaciones(address _trabajador, uint256 _monto) public soloEmpresa unaVezAlMes(_trabajador) {
+    function depositarPrestaciones(address _trabajador, uint256 _monto) public payable soloEmpresa unaVezAlMes(_trabajador) {
         require(trabajadores[_trabajador].estatus, "El trabajador no esta activo");
         // Se le incrementa el Saldo y se deposita en Stake
+        require(_monto == msg.value, "Monto y cantidad depositada no coincide");
         Trabajador storage trabajador = trabajadores[_trabajador];
         trabajador.saldo += _monto;
         _stake(_trabajador, _monto);
